@@ -1,0 +1,33 @@
+
+
+#see_post{
+    padding: 50px;
+    overflow-y: scroll;
+    height: 90vh;
+}
+
+#see_post #comment{
+    padding: 5px;
+    border-bottom: 1px solid grey;
+    list-style: none;
+} 
+
+#see_post #comment #com_name{
+    color: rgb(4, 191, 248);
+}
+
+#see_post a{
+    text-decoration: none;
+}
+
+#userauth{
+    color: rgb(6, 170, 69);
+}
+
+@media (max-width: 500px){
+    #see_post{
+        padding: 30px;
+        height: 50vh;
+        overflow-y: scroll;
+    }
+}

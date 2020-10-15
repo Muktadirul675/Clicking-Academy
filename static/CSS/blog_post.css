@@ -1,0 +1,44 @@
+:root{
+    --title-undline-width: 200px;
+}
+
+#blog_post{
+    height: 91vh;
+    overflow-y: scroll;
+    padding: 30px;
+}
+
+#blog_post h3 a{
+    text-decoration: none;
+} 
+
+#post{
+    max-height: 35vh;
+    height: fit-content;
+    width: 100%;
+    border-width: 0px 0px 1px 0px;
+    border-color: lightgray;
+    border-style: solid;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+#post p a{
+    text-decoration: none;
+}
+
+
+#post #title{
+    color: rgb(45, 101, 223);
+}
+
+#post #author{
+    color: rgb(189, 58, 87);
+}
+
+@media (max-width: 600px){
+    #post{
+        height: fit-content;
+        max-height: fit-content;
+    }
+}

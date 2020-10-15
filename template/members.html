@@ -1,0 +1,24 @@
+{% extends 'blog.html' %}
+
+{% block blogcss %}
+    <link rel="stylesheet" href="/static/CSS/members.css">
+{% endblock %}
+
+{% block blogbody %}
+    <div id="members">
+        <h1 id="header">Members Panel</h1>
+        <h2 id="text">Admin:</h2>
+        <div id="admin">
+            <h3><a href="">Otolanto Ashab Alam</a></h3>
+        </div>
+        <h2 id="text">Members:</h2>
+        {% if user %}
+            {% for user in users %}
+                <div id="member"><h4><a href="">{{user}}</a></h4></div>
+            {% endfor %}
+        {% else %}
+            <p>No members yet!</p>
+        {% endif %}
+    </div>
+    <a href="{% url 'academy:signup_page' %}" class="btn btn-primary">Be a Member?</a> 
+{% endblock %}

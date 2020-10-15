@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'CSS/home.css' %}">
+{% endblock %}
+
+{% block body %}
+    <div id="home" class="container-fluid " >
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 col-md-8 col-lg-6 col-xl-6 ">
+                <div id="text">
+                    <h1>Clicking Academy</h1>
+                    <h5>A platform to -> learn coding, practise</h5>
+                    <a href="{% url 'academy:about' %}" class="btn btn-primary" >About Us</a>
+                </div>
+            </div>
+            <div id="img-div" class="col-sm-12 col-xs-12 col-md-8 col-lg-6 col-xl-6  ">
+                <img id="home_img" src="/static/Images/home.png" alt="">
+            </div>
+        </div>
+    </div> 
+    <script src="/static/JS/jquery.js"></script>
+    <script src='/static/JS/home.js'></script>
+{% endblock %}

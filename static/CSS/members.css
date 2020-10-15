@@ -1,0 +1,40 @@
+#members{
+    padding: 30px;
+    overflow-y: scroll;
+    height: 70vh;
+}
+
+#addmember{
+    padding: 30px;
+    height: fit-content;
+}
+
+#addmember *{
+    margin: 5px;
+}
+
+#members a{
+    text-decoration: none;
+}
+
+#text::after{
+    content: "";
+    height: 2px;
+    background-color: rgb(19, 185, 3);
+    width: 30%;
+    display: block;
+}
+
+#members #header::after{
+    content: "";
+    height: 4px;
+    width: 100%;
+    display: block;
+    background-color: rgb(247, 55, 55);
+    margin-bottom: 5vh;
+}
+
+form .form{
+    margin: 15px;
+}
+

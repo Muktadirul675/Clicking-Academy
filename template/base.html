@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicking Academy</title>
+    {% block css %}
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'bv5/css/bootstrap.min.css' %}">
+</head>
+<body>
+    <div class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a href="{% url 'academy:home' %}" class="navbar-brand">Clicking Academy</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbaritems" aria-controls="navbaritems" aria-expanded="false" aria-label="Toggle navigation" >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbaritems" >
+                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'academy:home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'academy:about' %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'academy:blog' %}">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        {% if user.is_anonymous %}
+                            <a href="{% url 'academy:login_page' %}"  class="btn btn-primary">Log in</a>
+                            <a href="{% url 'academy:signup_page' %}" class="btn btn-success">Sign up</a>
+                        {% else %}
+                            <p  class="nav-link" id="user_name">Welcome, {{user}} <a style="text-decoration: none;" href="{% url 'academy:logout' %}">Logout</a></p>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% block body %}
+    {% endblock %}
+    <script src="{% static 'bv5/js/bootstrap.bundle.js' %}"></script>
+    <script src='/static/JS/jquery.js'></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block css %}
+    <link rel="stylesheet" href="/static/CSS/about.css">
+{% endblock %}
+
+{% block body %}
+    
+    <div id="about" class="container-fluid">
+        <div class="row">
+            <div id="about_text" class="col-md-8 col-12 col-xs-12 col-lg-6 col-xl-6 " >
+                <h1>Clicking Academy</h1>
+                <h4><code>A platform to learn code </code></h4>
+            </div>
+            <div class="col-md-8 col-12 col-xs-12 col-lg-6 col-xl-6 ">
+                <div id="imgcarousel" class="carousel slide " data-ride="carousel" >
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="/static/Images/home.png" alt="">
+                        </div> 
+                        <div class="carousel-item">
+                            <img src="/static/Images/clicking2.png" alt="">
+                        </div>   
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-12 col-xs-12 col-lg-6 col-xl-6 " >
+                <h3>Core Members</h3>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/JS/about.js"></script>
+
+{% endblock %}

@@ -1,0 +1,147 @@
+*{padding: 0;margin: 0;}
+:root{
+    --sidebar-height: 100vh;
+}
+body{
+    overflow-y: hidden;
+    max-height: 100vh;
+}
+
+#blog a{
+    text-decoration: none;
+}
+
+#sidebar{
+    height: var(--sidebar-height);
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    background-color: #343a40;
+}
+
+.c_close{
+    height: 0vh;
+    transition: 1s;
+    width:0%;
+    max-width: 0%;
+    opacity: 0.0;
+    animation: sidebar_animate_close 1s;
+}
+
+.c_open{
+    height: var(--sidebar-height);
+    transition: 1s;
+    width: 100%;
+    animation: sidebar_animate_open 1s;
+}
+
+#blog{
+    padding: 30px;
+}
+
+@keyframes sidebar_animate_open{
+    0%{
+        width:0%;
+        height: 0vh;;
+    }
+    100%{
+        width: 100%;
+        height: var(--sidebar-height);
+    }
+}
+
+@keyframes sidebar_animate_close{
+    0%{
+        max-width:100%;
+        opacity: 1;
+        height: var(--sidebar-height);
+    }
+    100%{
+        max-width: 0%;
+        opacity: 0.0;
+        height: 0vh;
+    }
+}
+
+#sidebar img{
+    height: 15%;
+    width: 40%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+
+#menu-toggle{
+    border-radius: 5px 20px 20px 20px;
+}
+
+#sidebar h3 a{
+    color: white;
+    text-decoration: none;
+}
+
+#sidebar #sidebar_btn{
+    background-color: transparent;
+    border: 0px;
+    border-bottom: 1px solid gray;
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    padding-bottom: 0px;
+    color: white;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#sidebar #sidebar_btn:hover{
+    border-left: 4px solid lightgrey;
+}
+
+#imgcarousel{
+    max-width:30vw;
+    max-height:30vh;
+}
+
+#imgcarousel *{
+    height: 30vh;
+    width: 30vw;
+}
+
+.c_card{
+    height: 45vh;
+    width: 20vw;
+    text-align: center;
+    border: 1px solid grey;
+    padding: 20px;
+    border-radius: 30px;
+}
+
+.c_card img{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+}
+
+@media (max-width: 600px){
+    body{
+        overflow-y: scroll;
+    }
+    #sidebar{
+        --sidebar-height:fit-content;
+        background-color: transparent;
+        color: black;
+    }
+    #sidebar #sidebar_btn{
+        color: black;
+        float: left;
+        width: fit-content;
+        margin: 5px;
+        padding: 0px;
+    }
+    #sidebar img{
+        display: none;
+    }
+}
+

@@ -1,0 +1,38 @@
+{% extends 'blog.html' %}
+
+{% block blogcss %}
+    <link rel="stylesheet" href="/static/CSS/post.css">
+{% endblock %}
+
+
+{% block blogbody %}
+    <div id="see_post">
+        <h1>{{ post.name }}</h1>
+        <h5>{{post.title}}</h5><br> 
+        <p>{{post.post}}</p> <br><hr>
+        <h3>
+            {% if post.comment.all.count == 0 %}
+                No Comments Yet ... <small>Be the first to comment</small>
+            {% else %}
+                Comments... {{ post.comment.all.count }}
+            {% endif %}
+        </h3> 
+        
+        <ul>
+            {% for comment in post.comment.all %}
+                <li id="comment"><strong id="com_name">{{ comment.name }}</strong> {{comment.time}}<br>{{ comment.comment }} <br> </li> 
+            {% endfor %}
+        </ul>
+        <form class="my-5" id="commentform"  method="POST">
+            {% if user.is_authenticated %}
+                {% csrf_token %}
+                <textarea name="comment" cols="50" rows="4" form="commentform"></textarea> <br>
+                <input class="btn btn-warning" type="submit" value="Add Comment">
+            {% else %}
+                <h6 id="userauth">Please log in to add comments ;)</h6>
+            {% endif %}
+        </form>
+        <a href="{% url 'academy:blog_post' %}" class="btn btn-secondary my-3" >Go Back</a>
+    </div>
+{% endblock %}
+

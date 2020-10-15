@@ -1,0 +1,25 @@
+{% extends 'blog.html' %}
+
+{% block blogcss %}
+    <link rel="stylesheet" href="/static/CSS/signup.css">
+{% endblock %}
+
+
+{% block blogbody %}
+    <div id="signup_page">
+        <h1>Clicking Academy</h1>
+        <h3>Be a Member!</h3>
+        <div id="signup">
+            <div id="form">
+                <form action="/signup/" method="POST">
+                    {% csrf_token %}
+                    <input type="email" name="email" placeholder="Email"> <br>
+                    <input type="username" name="user" placeholder="Username"> <br>
+                    <input type="password" name="pass" placeholder="Password"> <br>
+                    <input type="submit" value="Add Me!" class="btn btn-success">
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

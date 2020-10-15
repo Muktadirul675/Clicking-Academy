@@ -1,0 +1,32 @@
+{% extends 'blog.html' %}
+
+
+{% block blogcss %}
+    <link rel="stylesheet" href="/static/CSS/addpost.css">
+{% endblock %}
+
+{% block blogbody %}
+    <div id="add_post">
+        {% if user.is_authenticated %}
+            <div id="form">
+                <h3>Add Blog Post</h3>
+                <form id="addpostform" method="POST">
+                    {% csrf_token %}
+                    <small id="nameinfo"><strong>{{user}}</strong> will be shown as your name in post</small>
+                    <input type="hidden" name="name" value="{{user}}" disabled > <br>
+                    Title : <input type="text" name="title" > <br>
+                    Post : <br> <textarea id="posttext" form="addpostform" name="post"></textarea> <br>
+                    <input class="btn btn-success" type="submit" value="Add Post!">
+                </form>
+                <h4> Blog Post for Clicking Acdemy</h4>
+            </div>
+        {% else %}
+            <div id="non_login">
+                <h1>--Please login to add blog post--</h1>
+                <a class="btn btn-secondary" href="{% url 'academy:blog_post' %}">Go Back</a>
+                <a class="btn btn-success" href="{% url 'academy:login_page' %}">Log In</a>    
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+

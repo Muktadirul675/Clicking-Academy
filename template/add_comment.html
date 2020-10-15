@@ -1,0 +1,11 @@
+{% extends 'blog.html' %}
+
+{% block blogbody %}
+    <div id="add_comment">
+        <form action="" method="POST">
+            {% csrf_token %}
+            
+            <input type="submit" value="Add Comment">
+        </form>
+    </div>
+{% endblock %}

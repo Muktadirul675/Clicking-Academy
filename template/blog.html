@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block css %}
+    <link rel="stylesheet" href="/static/CSS/blog.css">
+    {% block blogcss %}
+    {% endblock %}
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div id="sidebar_holder" class="col-lg-2 col-sm-12 col-xs-12 col-md-3 col-xl-2">
+                <div id="sidebar">
+                    <img src="/static/Images/clicking2.png" alt="">
+                    <h3><a href="{% url 'academy:blog' %}">Blog</a></h3>
+                    <a id="sidebar_btn" href="{% url 'academy:blog_post' %}">Blog Posts</a>
+                    <a id="sidebar_btn" href="{% url 'academy:blog_members' %}">Members</a>
+                    <a id="sidebar_btn" href="{% url 'academy:activity' %}">Activities</a>
+                </div>
+            </div>
+            <div id="blogbody" class="col-lg-10 col-sm-12 col-xs-12 col-md-9 col-xl-10">
+                {% block blogbody %}
+                <div id="blog" class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-xs-12 col-lg-6 col-md-10 col-xl-6">
+                            <h1>Clicking Academy</h1>
+                            <h3>Blog</h3>
+                            <ul>
+                                <li><a href="{% url 'academy:blog_post' %}">See Blog Posts</a></li>
+                                <li><a href="{% url 'academy:blog_members' %}">See Blog Members</a></li>
+                                <li><a href="{% url 'academy:activity' %}">See Club Activities</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-xs-12 col-lg-6 col-md-10 col-xl-6 justify-content-center">
+                            <div id="imgcarousel" class="carousel slide " data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="/static/Images/car1.png" alt="">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="/static/Images/car2.jpg" alt="">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="/static/Images/car3.png" alt="">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="/static/Images/car4.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row my-5">
+                        <div class="col-12 col-xs-12 col-lg-3 col-md-10 col-xl-3 justify-content-center mx-3">
+                            <div class="c_card">
+                                <img src="/static/Images/clicking.png" alt=""> <br>
+                                <p>We give the best to serve you. So, lets stay tuned and help each other together!</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-xs-12 col-lg-3 col-md-10 col-xl-3 justify-content-center mx-3">
+                            <div class="c_card">
+                                <img src="/static/Images/car2.jpg" alt=""> <br>
+                                <p>Without programming the world has no value.It is just a part and parcel of the daily life of our world, nowadays.So, why not learn programming? ;) Lets start learning programming together.</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-xs-12 col-lg-3 col-md-10 col-xl-3 justify-content-center mx-3">
+                            <div class="c_card">
+                                <img src="/static/Images/car3.png" alt=""> <br>
+                                <p>Be a member and post to the blog. Ask questions and get replies from the community instantly.We ensure you that it will be latest and right!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+    <script src="/static/JS/jquery.js"></script>
+    <script src="/static/JS/blog.js"></script>
+{% endblock %}

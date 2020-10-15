@@ -1,0 +1,19 @@
+
+#about {
+    padding: 50px;
+    
+}
+
+#about #about_text{
+    color: rgb(177, 77, 11);
+}
+
+#imgcarousel{
+    max-height: 40vh;
+    max-width: 40vw;
+}
+
+#imgcarousel *{
+    max-height: 100%;
+    max-width: 100%;
+}
