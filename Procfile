@@ -1,0 +1,1 @@
+web: gunicorn clicking.wsgi --log-file -
