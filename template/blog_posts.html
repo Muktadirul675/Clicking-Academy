@@ -7,7 +7,7 @@
 {% block blogbody %}
     <div id="blog_post">
         <h1>Clicking Academy</h1>
-        <h3>Blog Posts  <a class="btn btn-primary" href="{% url 'academy:addpost' %}">Add Blog Post</a> </h3>
+        <h3>Blog Posts <a class="btn btn-primary" href="{% url 'academy:addpost' %}">Add Blog Post</a> </h3>
         <hr>
         {% for post in posts %}
             <div id="post">
@@ -16,8 +16,12 @@
                 <div id="content">
                     <p>{{ post.post }}</p>
                 </div>
-                <p>Comments {{ post.comment.all.count }} <br> <a href="{% url 'academy:post' post.id %}">View Post & Comments</a></p>
+                <p>Comments {{ post.comment.all.count }} <br> <a href="{% url 'academy:post' post.id %}">View Post & Comments</a><br>
+                {% if post.user_id == user.username %}
+                    <a id="del" href="{% url 'academy:delete_post' post.id %}" >Delete</a>
+                {% endif %}
+                </p>
             </div>
-        {% endfor %}
+        {% endfor %} 
     </div>
 {% endblock %}

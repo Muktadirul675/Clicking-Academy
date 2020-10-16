@@ -4,6 +4,31 @@
     padding: 30px;
 }
 
+.card{
+    margin-bottom: 10px;
+}
+
+.card-subtitle{
+    color: grey;
+    margin-bottom: 6px;
+}
+
 .card-img-top{
     height: 40vh;
+}
+
+
+@media (max-width: 600px){
+    #activities{
+        padding: 5px;
+    }
+    .card{
+        margin-left: 5px;
+    }
+    .card-title{
+        font-size: 1.3em;
+    }
+    .card-subtitle{
+        font-size: 0.9em;
+    }
 }

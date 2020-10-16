@@ -1,0 +1,19 @@
+#add_post{
+    padding: 50px;
+}
+
+#add_post #form form *{
+    margin: 10px;
+}
+
+#posttext{
+    width: 70vw;
+    height: 36vh;
+}
+
+@media (max-width: 600px){
+    body{
+        overflow-y: scroll;
+    }
+}
+

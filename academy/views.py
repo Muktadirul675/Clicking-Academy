@@ -96,4 +96,9 @@ def addpost(request):
 
     return render(request, 'addpost.html')
 
+def del_post(request, pk):
 
+    post = models.Post.objects.get(pk=pk)
+    post.delete()
+
+    return redirect('/blog_post/')
