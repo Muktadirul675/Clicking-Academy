@@ -1,0 +1,57 @@
+{% extends 'blog.html' %}
+
+
+{% block blogcss %}
+    <link rel="stylesheet" href="/static/CSS/addquestion.css">
+{% endblock %}
+
+
+{% block blogbody %}
+    <div id="add_q" class="container-fluid">
+        <h2>{{quiz.quiz_name}}</h2>
+        <h4>Category: {{ quiz.quiz_cat }}</h4>
+        <h4>Time: {{time}}</h4>
+        <br><br>
+        <div class="row">
+            <div class="col-12 col-xs-12 col-md-12 col-lg-6 col-xl-6">
+                <p><b>Quiz Questions </b></p>
+                <ol>
+                    {% for q in ques %}
+                        <li>
+                            {{q.ques}}
+                        </li>
+                    {% endfor %}
+                </ol>        
+            </div>
+            <div class="col-12 col-xs-12 col-md-12 col-lg-6 col-xl-6">
+                <p><b>Quiz Answers</b></p>
+                <ol>
+                    {% for a in ans %}
+                        <li>
+                            {{a.answer}}
+                        </li>
+                    {% endfor %}
+                </ol>        
+            </div>
+        </div>
+        {% if quiz.quiz_status == "close" %}
+            <form action="/addquestion_fun/" method="POST">
+                {% csrf_token %}
+                <br>
+                <input type="hidden" name="pk" value="{{pk}}">
+                Question: <input type="text" name="question"> <br> <br>
+                Answer: <input type="text" name="answer"> <br><br>
+                <input class="btn btn-primary" type="submit" value="Add">
+                <a href="{% url 'academy:organize' %}"class="btn btn-primary" >Go Back</a>
+            </form>
+        {% endif %}
+        {% if quiz.quiz_status == 'open' or quiz.quiz_status == 'left' %}
+            <h4>Participated</h4>
+            <ol>
+                {% for r in result %}
+                    <h6><li>{{r.user}}</li></h6>
+                {% endfor %}
+            </ol>
+        {% endif %}
+    </div>
+{% endblock %}

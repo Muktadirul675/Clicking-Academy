@@ -23,6 +23,12 @@
                 <li id="comment"><strong id="com_name">{{ comment.name }}</strong> {{comment.time}}<br>{{ comment.comment }} <br> </li> 
             {% endfor %}
         </ul>
+        <button class="btn btn-primary" onclick="add_comment()">Add Comment</button>
+        <script>
+            function add_comment(){
+                $("#commentform").css({"opacity":"1","height":"fit-content"});
+            }
+        </script>
         <form class="my-5" id="commentform"  method="POST">
             {% if user.is_authenticated %}
                 {% csrf_token %}

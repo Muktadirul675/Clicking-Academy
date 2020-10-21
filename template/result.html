@@ -1,0 +1,20 @@
+{% extends 'blog.html' %}
+
+{% block blogcss %}
+    <link rel="stylesheet" href="/static/CSS/result.css">
+{% endblock %}
+
+{% block blogbody %}
+    <div id="result">
+        <h1>Clicking Academy</h1>
+        <h3>Events</h3>
+        <h5>Click To see the result of corresponding event</h5>
+        <ul>
+        {% for q in quizes %}
+            {% if q.quiz_status == 'left' %}
+                <h4><li><a href="{% url 'academy:result_event' q.id %}">{{q.quiz_name}}</a></li></h4>
+            {% endif %}
+        {% endfor %}    
+        </ul>
+    </div>
+{% endblock %}

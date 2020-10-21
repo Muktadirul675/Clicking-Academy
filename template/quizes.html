@@ -1,0 +1,46 @@
+{% extends 'blog.html' %}
+
+{% block blogcss %}
+    <link rel="stylesheet" href="/static/CSS/quizes.css">
+{% endblock %}
+
+{% block blogbody %}
+    <div id="quizes">
+        <h2>Clicking Academy</h2>
+        <h3>Quizes</h3>
+        <h6>Go to <a href="{% url 'academy:event' %}">Event Declaration</a>  Section to see the description of these events</h6>
+        <h6>Click to participate events</h6>
+        <h6><a class="btn btn-primary" href="{% url 'academy:result' %}">See Results of previous Events</a></h6>
+        <br> <br>
+        <h6>Upcoming</h6>
+        <div id="quiz">
+            <ul>
+                {% for quiz in quizes %}
+                    {% if quiz.quiz_status == 'close' %}
+                        <li><a href="{% url 'academy:part' quiz.quiz_status quiz.id %}">{{quiz.quiz_name}}</a></li>
+                    {% endif %}
+                {% endfor %}    
+            </ul>
+        </div>
+        <h6>Ongoing</h6>
+        <div id="quiz">
+            <ul>
+                {% for quiz in quizes %}
+                    {% if quiz.quiz_status == 'open' %}
+                        <li><a href="{% url 'academy:part' quiz.quiz_status quiz.id %}">{{quiz.quiz_name}}</a></li>
+                    {% endif %}
+                {% endfor %}    
+            </ul>
+        </div>
+        <h6>Left</h6>
+        <div id="quiz">
+            <ul>
+                {% for quiz in quizes %}
+                    {% if quiz.quiz_status == 'left' %}
+                        <li>{{quiz.quiz_name}}</li>
+                    {% endif %}
+                {% endfor %}    
+            </ul>
+        </div>
+    </div>
+{% endblock %}

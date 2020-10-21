@@ -31,4 +31,7 @@
     .card-subtitle{
         font-size: 0.9em;
     }
+    .card-img-top{
+        height: 30vh;
+    }
 }

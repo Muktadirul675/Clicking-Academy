@@ -1,0 +1,15 @@
+#quizes{
+    padding: 30px;
+    overflow-y: scroll;
+    height: 86vh;
+}
+
+#quiz{
+    padding: 20px;
+    border-bottom: 1px solid grey;
+}
+
+#quizes a{
+    text-decoration: none;
+}
+

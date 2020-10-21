@@ -16,6 +16,11 @@
                     <a id="sidebar_btn" href="{% url 'academy:blog_post' %}">Blog Posts</a>
                     <a id="sidebar_btn" href="{% url 'academy:blog_members' %}">Members</a>
                     <a id="sidebar_btn" href="{% url 'academy:activity' %}">Activities</a>
+                    <a id="sidebar_btn" href="{% url 'academy:event' %}">Events Declaration</a>
+                    <a id="sidebar_btn" href="{% url 'academy:quizes' %}">Join Events</a>
+                    {% if user.username == 'non' %}
+                        <a id="sidebar_btn" href="{% url 'academy:organize' %}">Organize Events</a>
+                    {% endif %}
                 </div>
             </div>
             <div id="blogbody" class="col-lg-10 col-sm-12 col-xs-12 col-md-9 col-xl-10">
@@ -29,6 +34,8 @@
                                 <li><a href="{% url 'academy:blog_post' %}">See Blog Posts</a></li>
                                 <li><a href="{% url 'academy:blog_members' %}">See Blog Members</a></li>
                                 <li><a href="{% url 'academy:activity' %}">See Club Activities</a></li>
+                                <li><a href="{% url 'academy:event' %}">See Upcoming Events</a></li>
+                                <li><a href="{% url 'academy:quizes' %}">Join Events</a></li>
                             </ul>
                         </div>
                         <div class="col-12 col-xs-12 col-lg-6 col-md-12 col-xl-6 justify-content-center">
@@ -51,19 +58,19 @@
                         </div>
                     </div>
                     <div class="row my-5">
-                        <div class="col-sm-12 col-xs-12 col-lg-3 col-md-12 col-xl-3 justify-content-center mx-3">
+                        <div class="col-sm-12 col-xs-12 col-lg-3 col-md-12 col-xl-3 justify-content-center mx-2">
                             <div class="c_card">
                                 <img src="/static/Images/clicking.png" alt=""> <br>
                                 <p>We give the best to serve you. So, lets stay tuned and help each other together!</p>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-xs-12 col-lg-3 col-md-12 col-xl-3 justify-content-center mx-3">
+                        <div class="col-sm-12 col-xs-12 col-lg-3 col-md-12 col-xl-3 justify-content-center mx-2">
                             <div class="c_card">
                                 <img src="/static/Images/car2.jpg" alt=""> <br>
                                 <p>Without programming the world has no value.It is just a part and parcel of the daily life of our world, nowadays.So, why not learn programming? ;) Lets start learning programming together.</p>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-xs-12 col-lg-3 col-md-12 col-xl-3 justify-content-center mx-3">
+                        <div class="col-sm-12 col-xs-12 col-lg-3 col-md-12 col-xl-3 justify-content-center mx-2">
                             <div class="c_card">
                                 <img src="/static/Images/car3.png" alt=""> <br>
                                 <p>Be a member and post to the blog. Ask questions and get replies from the community instantly.We ensure you that it will be latest and right!</p>

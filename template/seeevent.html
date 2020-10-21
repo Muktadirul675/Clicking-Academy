@@ -1,0 +1,29 @@
+{% extends 'event.html' %}
+
+{% block event %}
+    <div id="see_event">
+        <h3>Event : {{event.name}}</h3>
+        <h5>Organizer: {{event.inst}}</h5>
+        <h6>Category: {{event.category}}</h6>
+        <h6>Date-Time: {{event.time}}</h6> <br>
+        <p><b> Decription: </b><br>{{event.dscrb}}</p>
+        {% if event.rules.all.count %}
+            <p><b>Rules:</b></p>
+            <ul>
+                {% for rule in event.rules.all %}
+                    <li>{{rule.rule}}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <a href="{% url 'academy:event' %}" class="btn btn-secondary" >Go Back</a> <br> <br>
+        {% if user.username == 'non' %}
+            <h6>Add Rule (only admin can add rules)</h6>
+            <form method="POST">
+                {% csrf_token %}
+                <input type="text" name="rule" id="rule_text"> <br> <br>
+                <input type="submit" value="Add Rule" class="btn btn-warning">
+            </form>
+        {% endif %}
+    </div>
+{% endblock %}
+

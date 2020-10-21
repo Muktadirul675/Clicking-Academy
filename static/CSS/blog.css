@@ -125,7 +125,7 @@ body{
     border-radius: 50%;
 }
 
-@media (max-width: 600px){
+@media (max-width: 880px){
     body{
         overflow-y: scroll;
     }
@@ -144,19 +144,28 @@ body{
         margin: 5px;
         padding: 0px;
     }
+    
+    #sidebar #sidebar_btn:hover{
+        border-left: 0px solid lightgrey;
+        border-top: 1px solid black;;
+    }
     #sidebar img{
         display: none;
     }
     #imgcarousel{
-        max-width:100vw;
+        max-width:80vw;
         max-height:50vh;
     }
 
     #imgcarousel *{
         height: 50vh;
-        width: 100vw;
+        width: 80vw;
     }
     .c_card{
         height: fit-content;
+        border: transparent;
+        border-bottom: 1px solid grey;
+        border-radius:0;
     }
 }
+

@@ -1,5 +1,5 @@
 from django import forms
-# from .models import Post, Comment
+from .models import Event
 
 
 # class PostForm(forms.ModelForm):
@@ -11,3 +11,9 @@ from django import forms
 #     class Meta:
 #         model = Comment
 #         fields = ('name','comment')
+
+
+class EventForm(forms.ModelForm):
+    class  Meta:
+        model = Event
+        fields = "__all__"

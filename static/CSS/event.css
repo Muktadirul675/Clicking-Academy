@@ -1,0 +1,40 @@
+#event{
+    padding: 30px;
+    height: 87vh;
+    overflow-y: scroll;
+}
+
+#event a{
+    text-decoration: none;
+}
+
+#event #event_col{
+    border-bottom: 1px solid grey;
+    padding: 10px;
+}
+
+#add_event{
+    border: 1px solid grey;
+    padding: 20px;
+    height: 0px;
+    overflow: hidden;
+    transition: 1s ease-in;
+    opacity: 0.0;
+}
+
+#see_event{
+    margin-top: 30px;
+}
+
+#rule_text{
+    width:60vw;
+}
+
+#del{
+    color: rgba(241, 28, 28, 0.822);
+}
+
+#del:hover{
+    color: rgba(155, 0, 0, 0.822);
+}
+

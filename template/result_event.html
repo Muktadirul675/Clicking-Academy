@@ -1,0 +1,23 @@
+{% extends 'blog.html' %}
+
+{% block blogcss %}
+    <link rel="stylesheet" href="/static/CSS/result_event.css">
+{% endblock %}
+
+
+{% block blogbody %}
+    <div id="result_event">
+        <h2>Clicking Academy</h2>
+        <h4>{{quiz.quiz_name}} Results</h4> <br>
+        <h5>
+            Highest Marks: {{highest}}
+        </h5>
+        <h5>Participant - Marks</h5>
+        <ul>
+        {% for r in result %}
+            <h5><li>{{r.user}} - {{r.result}}</li></h5>
+        {% endfor %}   
+        </ul>
+    </div>
+{% endblock %}
+

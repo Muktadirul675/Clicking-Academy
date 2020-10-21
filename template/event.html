@@ -1,0 +1,52 @@
+{% extends 'blog.html' %}
+
+{% block blogcss %}
+<link rel="stylesheet" href="/static/CSS/event.css">
+{% endblock %}
+
+{% block blogbody %}
+<div id="event" class="container-fluid">
+    <div class="row">
+        <h1>Clicking Academy</h1>
+        <h3>Club Events</h3>
+        {% block event %}
+        {% if user.username == 'non' %}
+        <h4>Add Event (only admin can add events) <button class="btn btn-primary" onclick="add_event()">Event Form</button></h4>
+        <div id="add_event">
+            <form method="POST">
+                {% csrf_token %}
+                Event Name: {{ form.name }} <br> <br>
+                Event Organizer: {{ form.inst }} <br> <br>
+                Description: <br> {{ form.dscrb }} <br> <br>
+                Category: {{ form.category }} <br> <br>
+                Time: {{ form.time }} <br><br>
+                <input class="btn btn-primary" type="submit" value="Add Event">
+            </form>
+        </div>
+        <script type="text/javascript">
+            var close = true;
+            function add_event() {
+                if (close == true) { $("#add_event").css({ "height": "fit-content", "opacity": "1" }); close = false; }
+                else if (close == false) { $("#add_event").css({ "height": "0px", "opacity": "0.0" }); close = true; };
+            }
+        </script>
+        {% endif %}
+        {% for e in event %}
+        <div id="event_col" class="col-12 col-sm-12 col-lg-12 col-md-12 col-xl-12 my-4">
+            <div id="dscrb">
+                <h3>{{ e.name }}</h3>
+                <h5>By {{ e.inst }}</h5>
+                <p>Category: {{ e.category }}</p>
+                <p>Date-Time: {{e.time}}</p> 
+            </div>
+            <div id="image">
+
+            </div>
+            <a href="{% url 'academy:seeevent' e.id %}">See Description</a> <br>
+            {% if user.username == 'non' %}<a href="{% url 'academy:del_event' e.id %}" id="del">Delete</a>{% endif %}
+        </div>
+        {% endfor %}
+        {% endblock %}
+    </div>
+</div>
+{% endblock %}

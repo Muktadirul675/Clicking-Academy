@@ -1,0 +1,51 @@
+{% extends 'blog.html' %}
+
+
+{% block blogcss %}
+    <link rel="stylesheet" href="/static/CSS/part.css">
+{% endblock %}
+
+
+{% block blogbody %}
+    <div id="part">
+        <h1>{{quiz.quiz_name}}</h1>
+        {% if quiz.quiz_status == 'close' %}
+            <h3>Upcoming Event</h3>
+            <h4>Please see the <a href="{% url 'academy:event' %}">Event Declarations</a> section to see the description of this event</h4>
+        {% endif %}
+        {% if quiz.quiz_status == 'open' %}
+            <h3>Category: {{quiz.quiz_cat}}</h3>
+            <h3>Time: {{time}} </h3>
+            <p><b>Note:</b></p>
+            <ul>
+                <li>Be honest</li>
+                <li>Members of any category can fill this form but the questions will be of the given the category</li>
+                <li>You have to fill this form within the time</li>
+                <li>If you submit this form after time your answer won't be received and you will be redirected to Join Event Section</li>
+            </ul>
+            <h4>Your Question</h4>
+            {% if user.is_authenticated %}
+                {% if not given %}
+                    <div id="open">
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            <ol>
+                                {% for q in ques %}
+                                    <h5><li>{{q.ques}} Answer: <input type="text" name="{{q.ques}}" id=""></li></h5>
+                                {% endfor %}   
+                            </ol>
+                            <input type="submit" value="Submit" class="btn btn-warning">
+                        </form>
+                    </div>
+                {% else %}
+                    <h3>You have already participated this event</h3>
+                    <a href="{% url 'academy:quizes' %}" class="btn btn-primary">Go Back</a>
+                {% endif %}
+            {% else %}
+                <h4>Please Be a Member/Log in to participate in this event</h4>
+                <a href="{% url 'academy:login_page' %}" class="btn btn-primary" >Login</a>
+                <a href="{% url 'academy:signup_page' %}" class="btn btn-primary" >Sign Up</a>
+            {% endif %}
+        {% endif %}
+    </div>
+{% endblock %}

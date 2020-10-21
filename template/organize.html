@@ -1,0 +1,31 @@
+{% extends 'blog.html' %}
+
+{% block blogcss %}
+    <link rel="stylesheet" href="/static/CSS/organize.css">
+{% endblock %}
+
+
+{% block blogbody %}
+    <div id="organize">
+        <h2>Clicking Academy</h2>
+        <h4>Organize and see Quizes/Olympiads</h4>
+        <h5>Only For Admin</h5>
+        <br><br>
+        <h3>Add Quiz</h3>
+        <form method="POST">
+            {% csrf_token %}
+            Quiz Name: <input type="text" name="quiz_name" id=""> <br><br>
+            Quiz Status: <input type="text" name="quiz_state" id=""> <br><br>
+            Quiz Category: <input type="text" name="quiz_cat" id=""> <br><br>
+            Quiz Time: <input type="number" name="time" id=""> <br><br>
+            <input type="submit" value="Add Quiz" class="btn btn-primary" >
+        </form> <br><br>
+        <h3>Quizes</h3>
+        <ul>
+            {% for q in quizes %}
+                <h5><li><a href="{% url 'academy:addquestion' q.id %}">{{q.quiz_name}} {{q.quiz_status}}</a></li></h5>
+            {% endfor %}    
+        </ul>
+    </div>
+{% endblock %}
+

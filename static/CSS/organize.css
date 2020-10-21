@@ -1,0 +1,10 @@
+#organize{
+    padding: 30px;
+    height: 88vh;
+    overflow-y: scroll;
+}
+
+
+#organize a{
+    text-decoration: none;
+}

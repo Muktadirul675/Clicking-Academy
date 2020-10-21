@@ -1,0 +1,19 @@
+#part{
+    padding: 30px;
+    height: 88vh;
+    overflow-y: scroll;
+}
+
+#part a{
+    text-decoration: none;
+}
+
+#open{
+    padding: 30px;
+}
+
+@media (max-width:880px){
+    #part{
+        padding: 10px;
+    }
+}
