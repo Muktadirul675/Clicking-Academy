@@ -31,7 +31,11 @@
                             {% csrf_token %}
                             <ol>
                                 {% for q in ques %}
-                                    <h5><li>{{q.ques}} Answer: <input type="text" name="{{q.ques}}" id=""></li></h5>
+                                    <h5><li>{{q.ques}} <br> 
+                                        {% for a in q.answers.all %}
+                                            <input type="radio" name="{{q.ques}}"  value="{{a.status}}" id=""> {{a.answer}} 
+                                        {% endfor %}
+                                    </li></h5>
                                 {% endfor %}   
                             </ol>
                             <input type="submit" value="Submit" class="btn btn-warning">

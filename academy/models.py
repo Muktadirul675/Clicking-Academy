@@ -44,7 +44,8 @@ class Quiz(models.Model):
     quiz_status = models.CharField(max_length=100)
     quiz_name = models.CharField(max_length=300)
     quiz_cat = models.CharField(max_length=300)
-    time = models.IntegerField()
+    date_time = models.CharField(max_length=1000)
+    limit = models.IntegerField()
 
     def __str__(self):
         return f"{self.quiz_name} {self.quiz_status} {self.quiz_cat}"
@@ -59,7 +60,11 @@ class QuizQue(models.Model):
 class QuizAns(models.Model):
     ques = models.ForeignKey(QuizQue, related_name='answers', on_delete=models.CASCADE)
     answer = models.CharField(max_length=1000)
-    quiz = models.ForeignKey(Quiz, related_name='answers', on_delete=models.CASCADE)
+    states = [
+        ('R','Right'),
+        ('W','Wrong')
+    ]
+    status = models.CharField(max_length=200, choices=states)
     
     def __str__(self):
         return f"{str(self.ques)} {self.answer} "

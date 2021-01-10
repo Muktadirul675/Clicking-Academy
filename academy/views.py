@@ -152,24 +152,15 @@ def part(request, state, pk):
         if r.user == request.user.username:
             given = True
     ques = models.QuizQue.objects.filter(quiz=quiz)
-    time = quiz.time
-    if time > 60:
-        minutes = time % 60
-        hour = time // 60
-        time = f'{hour} hour and {minutes} minutes '
-    elif time<=60:
-        time = f"{time} minutes"
+    time = quiz.date_time
     dict = {'quiz':quiz,'state':state,'ques':ques,'given':given,'time':time}
 
     if request.method == 'POST':
         if quiz.quiz_status == 'open':
             result = 0
             for q in ques:
-                ans = models.QuizAns.objects.filter(ques=q)
-                for a in ans:
-                    if request.POST[str(q.ques)].lower() == str(a.answer).lower():
-                        result += 1
-            result += 1
+                if request.POST[q.ques] =="R":
+                    result += 1
             final_result = models.Result(quiz=quiz, user=request.user.username, result=str(result))
             final_result.save()
             return redirect(f'/quizes/')
